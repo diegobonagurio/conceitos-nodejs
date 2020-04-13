@@ -39,7 +39,7 @@ app.put("/repositories/:id", (request, response) => {
   );
 
   if (findRepository === -1) {
-    return response.status(400).json({ error: 'Repository does not exists.' });
+    return response.status(400).json({ error: 'This Repository not exists' });
   }
 
   const repository = {
@@ -65,7 +65,7 @@ app.delete("/repositories/:id", (request, response) => {
   if(findRepository >= 0){
     repositories.splice(findRepository, 1);
   }else {
-    return response.status(400).json({ error: 'This repository does not exists. '})
+    return response.status(400).json({ error: 'This Repository not exists'})
   }
 
   return response.status(204).send();
@@ -79,7 +79,7 @@ app.post("/repositories/:id/like", (request, response) => {
   );
 
   if (findRepository === -1) {
-    return response.status(400).json({ error: 'Repository not found '});
+    return response.status(400).json({ error: 'This Repository not exists'});
   }
 
   repositories[findRepository].likes += 1;
